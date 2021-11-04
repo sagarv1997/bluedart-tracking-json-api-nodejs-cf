@@ -1,0 +1,26 @@
+{
+  "name": "shipping_bluedart_status_fetch",
+  "version": "1.0.0",
+  "description": "Cloud Function to get the shipping status of Bluedart Courier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "keywords": [
+    "Shipping",
+    "Bluedart",
+    "Courier"
+  ],
+  "author": "Sagar Vaghela",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
+    "xml-js": "^1.6.11"
+  }
+}

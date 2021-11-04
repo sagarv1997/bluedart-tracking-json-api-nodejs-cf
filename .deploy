@@ -1,0 +1,1 @@
+gcloud functions deploy getBluedartShipmentStatus --trigger-http --security-level=secure-always --timeout=240 --runtime=nodejs14
