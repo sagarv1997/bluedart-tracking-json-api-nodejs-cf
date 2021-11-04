@@ -1,0 +1,24 @@
+const CONSTANTS = {
+  BLUEDART_API: process.env.BLUEDART_API,
+  SHIPMENT_STATUS: {
+    NO_INFO: "NO_INFO",
+    IN_TRANSIT: "IN_TRANSIT",
+    UNDELIVERED: "UNDELIVERED",
+    DELIVERED: "DELIVERED",
+    RTO: "RTO",
+    REDIRECTED: "REDIRECTED",
+  },
+  RESULT: {
+    SUCCESS: "SUCCESS",
+    FAILED: "FAILED",
+  },
+  BLUEDART: {
+    HANDLER: "tnt",
+    ACTION: "custawbquery",
+    VERSION_NUMBER: "1.3f",
+    LOGIN_ID: process.env.BLUEDART_LOGIN_ID,
+    LICENSE_KEY: process.env.BLUEDART_LICENSE_KEY,
+  },
+};
+
+module.exports = CONSTANTS;
