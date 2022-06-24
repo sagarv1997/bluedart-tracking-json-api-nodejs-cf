@@ -117,25 +117,29 @@ const fetch = async (trackingId, checkpoints, bulk) => {
 
 const saveResponse = async (data, checkpoints, bulk) => {
   if (!bulk) {
-    save({
-      tracking_id: data.trackingId,
-      checkpoint: checkpoints,
-      response_dump: JSON.stringify(data),
-      comment: "",
-      status: data.shipmentStatus,
-    });
+    if (data.shipmentStatus !== CONSTANTS.SHIPMENT_STATUS.NO_INFO) {
+      save({
+        tracking_id: data.trackingId,
+        checkpoint: checkpoints,
+        response_dump: JSON.stringify(data),
+        comment: "",
+        status: data.shipmentStatus,
+      });
+    }
   } else if (bulk) {
     const bulkData = [];
     data.forEach((d) => {
-      const s = {};
-      s.tracking_id = d.trackingId;
-      s.checkpoint = checkpoints;
-      s.response_dump = JSON.stringify(d);
-      s.comment = "";
-      s.status = d.shipmentStatus;
-      s.courier = "BLUEDART";
+      if (d.shipmentStatus !== CONSTANTS.SHIPMENT_STATUS.NO_INFO) {
+        const s = {};
+        s.tracking_id = d.trackingId;
+        s.checkpoint = checkpoints;
+        s.response_dump = JSON.stringify(d);
+        s.comment = "";
+        s.status = d.shipmentStatus;
+        s.courier = "BLUEDART";
 
-      bulkData.push(s);
+        bulkData.push(s);
+      }
     });
 
     bulkSave(bulkData);
